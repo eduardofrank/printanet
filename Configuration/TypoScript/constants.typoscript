@@ -1,0 +1,82 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/constants.typoscript">
+
+
+############
+### PAGE ###
+############
+page {
+    logo {
+        file = EXT:printanet/Resources/Public/Images/logo-printanet.png
+        height = 73
+        width = 300
+        alt = Imprenta digital operando una prensa HP Indigo 5000 en Caracas, Venezuela.
+    }
+    favicon {
+        file = EXT:printanet/Resources/Public/Icons/favicon.ico
+    }
+    fluidtemplate {
+        layoutRootPath = EXT:printanet/Resources/Private/Layouts/Page/
+        partialRootPath = EXT:printanet/Resources/Private/Partials/Page/
+        templateRootPath = EXT:printanet/Resources/Private/Templates/Page/
+    }
+    theme {
+        breadcrumb = 0
+        breadcrumbEnableLevel = 2
+        footersection.enable = 1
+        copyright.enable = 1
+        copyright.text = © Printanet, C.A. 2016-2018
+    }
+    meta {
+        author = Eduardo Frank - edfrank_at_gmail.com
+        description =  Imprenta digital operando una prensa HP Indigo 5000 en Caracas, Venezuela.
+        keywords = impresión digital, prensa digital Indigo, tarjetas de presentación, papelería, afiches, catálogos, cuadernillos, data variable, numeración, personalización, offset, prensa plana, cuarto de pliego, medio pliego, pliego, PDF/X, sangrado, corte, engrapado, Altamira, Caracas, Venezuela
+        robots = index,follow
+    }
+}
+
+
+##############
+### CONFIG ###
+##############
+config {
+    admPanel = 0
+}
+
+
+############
+### LESS ###
+############
+plugin.bootstrap_package.settings.less {
+    brand-primary = #00519d
+    navbar-height = 60px
+    nav-tabs-border-color = #00539b
+    nav-tabs-justified-link-border-color = #00539b
+    nav-tabs-active-link-hover-border-color = #00539b
+    headings-color = #00539b
+}
+
+
+########################
+### CONTENT ELEMENTS ###
+########################
+plugin.bootstrap_package_contentelements.view {
+    partialRootPath = EXT:printanet/Resources/Private/Partials/ContentElements/
+}
+
+
+################################
+#### ADDED BY EDUARDO FRANK ####
+################################
+plugin.tx_felogin_pi1.storagePid = 0
+page.theme.language.enable = 0
+page.theme.language.languageValue = 0
+page.tracking.google.trackingID = UA-106077664-1
+
+
+page.includePath.icons = EXT:printanet/Resources/Public/Icons/
+plugin.tx_form.view.layoutRootPath = EXT:printanet/Resources/Private/Layouts/
+plugin.tx_form.view.partialRootPath = EXT:printanet/Resources/Private/Partials/
+plugin.tx_form.view.templateRootPath = EXT:printanet/Resources/Private/Templates/

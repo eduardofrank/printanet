@@ -1,0 +1,102 @@
+######################
+#### DEPENDENCIES ####
+######################
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:bootstrap_package/Configuration/TypoScript/setup.typoscript">
+
+
+##############
+#### PAGE ####
+##############
+page {
+    includeCSSLibs {
+        googlewebfont = <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    }
+    includeCSS {
+        printanet_layout = EXT:printanet/Resources/Public/Css/layout.min.css
+        printanet_layout = EXT:printanet/Resources/Public/Css/printanet.css
+    }
+    includeJSFooter {
+        printanet_scripts = EXT:printanet/Resources/Public/JavaScript/Dist/scripts.js
+    }
+}
+
+################################
+#### ADDED BY EDUARDO FRANK ####
+################################
+config.contentObjectExceptionHandler = 0
+config.admPanel = 0
+# Localization:
+config {
+        linkVars = L
+        sys_language_uid = 0
+        language = es
+        locale_all = es_ES.UTF-8
+        htmlTag_setParams = lang="es" dir="ltr" class="no-js"
+}
+# Realurl
+config.tx_realurl_enable = 1
+config.absRefPrefix = /
+
+#### FORM CONFIGURATION ###
+plugin.tx_form.settings.yamlConfigurations.100 = EXT:printanet/Configuration/Form/FormSetup.yaml
+module.tx_form.settings.yamlConfigurations.100 = EXT:printanet/Configuration/Form/FormSetup.yaml
+
+#### SCHEMA.ORG #####
+plugin.tx_schemaorg {
+    settings {
+        page {
+            # context is not required
+            # Find other types on:
+            # http://schema.org/LocalBusiness
+            type = ProfessionalService
+            name = Printanet | Impresion Digital
+            url = {$themes.configuration.baseurl}
+            telephone = +58 212 265 55 13
+            image {
+                type = ImageObject
+                url = http://printanet.net/site/typo3conf/ext/printanet/Resources/Public/Images/logo-printanet.png
+                caption = Printanet
+            }
+            address {
+                type = PostalAddress
+                streetAddress = Av. Francisco de Miranda con Av. Del Avila, Edif. Humboldt, Nivel Sótano
+                addressLocality = Urb. Altamira, Chacao, Caracas - Venezuela
+                postalCode = 1060
+            }
+            geo {
+                type = GeoCoordinates
+                latitude = 10° 29' 43.70'' N
+                longitude = 66° 50' 54.10'' W
+            }
+            # Opening hours
+            openingHoursSpecification {
+                type = OpeningHoursSpecification
+                dayOfWeek {
+                    # Builds a JSON array into node dayOfWeek
+                    ARRAY = Monday,Tuesday,Wednesday,Thursday,Friday
+                }
+                opens = 09:00
+                closes = 17:00
+            }
+            # Contact
+            contactPoint {
+                type = ContactPoint
+                telephone = +58 212 265 55 13
+                # contact types for phone numbers:
+                # https://developers.google.com/search/docs/data-types/corporate-contacts
+                contactType = customer service
+            }
+        }
+    }
+}
+plugin.tx_schemaorg.widgets.page = USER
+plugin.tx_schemaorg.widgets.page {
+	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+	pluginKey = Schema
+	pluginName = Schema
+	extensionName = SchemaOrg
+	vendorName = CodingMs
+	controller = Schema
+	action = inject
+}
+page.1503070436 < plugin.tx_schemaorg.widgets.page

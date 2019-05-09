@@ -1,0 +1,7 @@
+#
+# PageTS for printanet
+#
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:printanet/Configuration/PageTS/RTE.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:printanet/Configuration/PageTS/TCEFORM.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:printanet/Configuration/PageTS/TCEMAIN.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:printanet/Configuration/PageTS/Mod/WebLayout/BackendLayouts.txt">

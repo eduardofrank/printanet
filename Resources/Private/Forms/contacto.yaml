@@ -1,0 +1,94 @@
+
+renderingOptions:
+  submitButtonLabel: Enviar
+identifier: Contacto
+label: Contacto
+type: Form
+prototypeName: standard
+finishers:
+  -
+    options:
+      subject: '{subject}'
+      recipientAddress: printanet1@gmail.com
+      recipientName: Printanet
+      senderAddress: '{email}'
+      senderName: '{name}'
+      replyToAddress: '{email}'
+      carbonCopyAddress: ''
+      blindCarbonCopyAddress: ''
+      format: html
+      attachUploads: true
+      translation:
+        language: ''
+    identifier: EmailToReceiver
+  -
+    options:
+      pageUid: '15'
+      additionalParameters: ''
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: Regresar
+      nextButtonLabel: Enviar
+    identifier: page-1
+    label: Contacto
+    type: Page
+    renderables:
+      -
+        defaultValue: ''
+        identifier: name
+        label: Nombre
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: 'Nombre y Apellido'
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        identifier: subject
+        label: Asunto
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: Asunto
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+      -
+        defaultValue: ''
+        identifier: email
+        label: 'Dirección de correo eléctronico'
+        type: Text
+        properties:
+          fluidAdditionalAttributes:
+            required: required
+            placeholder: 'Escriba su correo eléctronico'
+        validators:
+          -
+            identifier: NotEmpty
+          -
+            identifier: EmailAddress
+      -
+        defaultValue: ''
+        identifier: message
+        label: Mensaje
+        type: Textarea
+        properties:
+          fluidAdditionalAttributes:
+            placeholder: 'Escriba su mensaje aquí'
+            required: required
+        validators:
+          -
+            identifier: NotEmpty
+  -
+    renderingOptions:
+      previousButtonLabel: 'previous Step'
+      nextButtonLabel: 'next Step'
+    identifier: summarypage
+    label: 'Si está de acuerdo, proceda…'
+    type: SummaryPage
